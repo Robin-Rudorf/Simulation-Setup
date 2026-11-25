@@ -1,0 +1,2 @@
+Cols:
+cc,rand,tau,v,k,nu,gamma,permult,line,O_mean,O_var,frames_ok,alpha_relaxation_time,isglassy,datacount,minSelfInt
