@@ -1,0 +1,51 @@
+Install on Debian 13 (Trixie)
+-----------------------------
+
+All Skripts where developed and tested under Linux Debian 13
+
+Please install the needed packages with the following command as user root: 
+
+apt-get install \
+build-essential \
+cmake \
+libboost-all-dev \
+libgsl-dev \
+libcgal-dev \
+libvtk9-dev \
+qtbase5-dev \
+bc \
+python3-numpy \
+python3-pandas \
+python3-vtk9 \
+screen \
+7zip \
+git
+
+It is helpful when you install the "midnight commander" (apt-get install mc) 
+
+--------------------------------------------------------------------------------------------------
+Samos-Installation
+
+mkdir ~/samos_inst
+cd ~/samos_inst
+
+git clone https://github.com/Robin-Rudorf/SAMoS.git
+git clone https://github.com/Robin-Rudorf/Simulation-Setup.git
+
+cd SAMoS
+mkdir build
+cd build
+cmake -Wno-dev ..
+make -j 8 # Need 3GB RAM per CPU-Core (-j: CPU-Cores for make)
+make install
+
+
+cp -r ~/samos_inst/Simulation-Setup/Template_Skripts ~/samos/
+cd ~/samos/Template_Skripts
+chmod +x *.py
+chmod +x *.sh
+
+echo>>~/.bashrc
+echo 'export PATH=$PATH'":$HOME/samos/bin">>~/.bashrc
+
+
